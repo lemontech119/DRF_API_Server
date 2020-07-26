@@ -1,7 +1,7 @@
 from rest_framework import viewsets
 from rest_framework import permissions
 
-from .serializers import BoardSerializer, CommentSerializer
+from .serializers import BoardSerializer, CommentSerializer, BoardOnlySerializer
 from .models import Board, Comment
 
 
@@ -21,3 +21,10 @@ class CommentViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         return serializer.save(user=self.request.user)
+
+
+class CommentOnlyViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = Board.objects.all()
+    serializer_class = BoardOnlySerializer
+    permission_classes = [permissions.AllowAny]
+

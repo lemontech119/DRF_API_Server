@@ -212,3 +212,4 @@ sentry_sdk.init(
     send_default_pii=True
 )
 
+os.environ["DJANGO_ALLOW_ASYNC_UNSAFE"] = "true"

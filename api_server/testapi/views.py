@@ -3,6 +3,7 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny
 from .task import send_email
 
+
 @api_view(['GET'])
 @permission_classes([AllowAny])
 def send_test_email(requset):
@@ -14,3 +15,10 @@ def send_test_email(requset):
 @permission_classes([AllowAny])
 def occur_error(request):
     raise ValueError
+
+
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def eb_test(requset):
+    return Response({"message": "ok"})
+

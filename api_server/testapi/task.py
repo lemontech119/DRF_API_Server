@@ -2,7 +2,10 @@ from __future__ import absolute_import, unicode_literals
 from celery import shared_task
 from django.core.mail.message import EmailMessage
 from api_server import settings
+import datetime
 FROM_EMAIL = settings.EMAIL_HOST_USER
+from django.http import HttpResponse
+
 
 @shared_task
 def send_email():
@@ -11,3 +14,5 @@ def send_email():
     message = "email test가 성공했습니다."
     EmailMessage(subject=subject, body=message, to=to, from_email=FROM_EMAIL).send()
     return True
+
+

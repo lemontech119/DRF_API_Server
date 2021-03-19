@@ -17,7 +17,7 @@ cryptography==3.0
 Django==3.1
 django-celery-beat==2.0.0
 django-timezone-field==4.0
-djangorestframework==3.11.0
+djangorestframework==3.11.2
 djangorestframework-jwt==1.11.0
 docker==4.3.1
 docker-compose==1.25.5
